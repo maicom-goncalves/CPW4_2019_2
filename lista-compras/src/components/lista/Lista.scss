@@ -1,0 +1,63 @@
+@import '../Cores';
+@import '../../fonts/Fontes';
+
+.container{
+    padding:0px 10px;
+    h2{
+        color:$cor-titulo;
+        font-family:$fonte-principal;
+    }
+    #listagem{
+        margin: 5px;
+        .item{
+            text-align: center;
+            font-family: $fonte-principal;
+            
+            color:white;
+            background-color: $cor-fundo-item1;
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    }
+    #areaBotao{
+        margin:5px;
+        #botaoNovaLista{
+            width:  68px;
+            float:right;
+        }
+    }
+    #menssagemSEmLista{
+        font-family:$fonte-principal;
+        font-size: 40px;
+        color:#cc3f0c;
+        margin-top:40px;
+    }
+}
+#formNovaLista{
+    padding: 10px;
+    
+    input{
+         display:block;
+         margin:auto;
+         &[type=text]{
+                width: 80%;
+                height: 40px;
+                font-size: 100%;
+                border:1px solid #aaaaaa;
+                border-radius:5px;
+                margin-bottom: 20px;
+                font-family:$fonte-principal;
+       }
+       &[type=submit]{
+           width: 70px;
+           padding: 20px;
+           background-color: $cor-menu;
+           color:white;
+           border-radius:5px;
+           font-size: 100%;
+           font-family:$fonte-principal;
+       }
+    }
+    
+}

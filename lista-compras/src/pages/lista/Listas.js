@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from '../menu/Menu';
+import Menu from '../../components/menu/Menu';
 
 import logo from '../../img/logo.png';
 import ListaService from '../../services/ListaService';

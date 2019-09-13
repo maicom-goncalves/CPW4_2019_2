@@ -1,0 +1,12 @@
+@import '../fonts/Fonts';
+
+
+#cabecalho{
+       p{
+     font-family: $fonte-conteudo;
+     text-align: justify;
+        }
+        h2{
+            text-align: center;
+        }
+}

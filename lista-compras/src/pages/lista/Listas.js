@@ -42,17 +42,28 @@ class Listas extends Component {
 
                         {
                             /**
-                             * neste trecho de codigo o operador AND (&&) atua como um
-                             * operador de ligação entre a condição lógica e o codigo 
-                             * de apresentação a ser renderizado.
+                             * Neste trecho de código, 
+                             * o operador AND (&&) atua como
+                             * um operador de ligação entre a
+                             * condição lógica e o código de 
+                             * apresentação a ser renderizado.
                              */
-                            (!this.state.listas) &&
-                            <h2>Minhas Listas</h2>
+                            !this.state.listas &&
+                            <h2>Minhas listas</h2>
                         }
+
                         {
                             this.state.listas &&
-                            <p id="menssagemSEmLista">Comece já a sua primeira lista de compras!</p>
+                            <p id="menssagemSEmLista">
+                                Clique no botão abaixo
+                                para cadastrar uma nova
+                                lista!
+                            </p>
                         }
+
+                        <div id="listagem">
+                            {listas}
+                        </div>
                         <div id="listagem">{listas}</div>
                         <div id="areaBotao">
                             <Link to="/criarlista">

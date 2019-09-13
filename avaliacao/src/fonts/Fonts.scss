@@ -1,0 +1,11 @@
+@font-face{
+    font-family: 'conteudo';
+    src:url(./Anton-Regular.ttf);
+}
+@font-face{
+    font-family: 'principal';
+    src:url(./RobotoSlab-Regular.ttf);
+}
+
+$fonte-principal:'principal';
+$fonte-conteudo:'conteudo';

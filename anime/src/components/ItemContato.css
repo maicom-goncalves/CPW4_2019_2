@@ -1,0 +1,21 @@
+.itemContato{
+    padding : 16px;
+    background-color: #E6BCCD;
+    box-shadow: 2px 2px 4px #D295BF;
+    width: 50%;
+    margin-bottom:10px;
+    border-radius: 7px;
+}
+.itemContato img {
+    width: 27px;
+    margin-right: 10px;
+}
+.itemContato #descricao{
+    font-weight: bold;
+    color: #012A36;
+
+}
+
+.itemContato {
+
+}

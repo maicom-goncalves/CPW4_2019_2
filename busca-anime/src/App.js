@@ -1,34 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './App.scss';
+import Banner from './Banner';
+
+import Conteudo from './Conteudo';
+import {
+  BrowserRouter
+} from 'react-router-dom';
 
 function App() {
-   constructor(props) {
-        super(props);
-        this.state = {
-            lista: this.props.location.state.lista,
-            itensFiltrados :[]
-        };
-        this.service = new ListaAnime();
-    }
-    /**
-     * aplica o filtro do usuário nos
-     * itens de lista
-     
-    filtrarItens = (event) => {
-        //pega o valor digitado do campo de filtro
-        let filtro = event.target.value;
-        let itensFiltrados = this.service.recuperarItens(filtro);
-        console.log(itensFiltrados);
-    }*/
   return (
-   <div>
-    <h3 id="nomeLista">{lista.nome}</h3>
-                <form>
-                    <input onChange={this.filtrarItens} name="filtro"
-                        type="text/" />
-                </form>
-   </div>
+    <BrowserRouter>
+        <div className="container">
+          <div>
+            <div className="row">
+              <div className="col" id="banner">
+                <Banner />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-10" id="conteudo">
+                <Conteudo />
+              </div>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
   );
 }
 

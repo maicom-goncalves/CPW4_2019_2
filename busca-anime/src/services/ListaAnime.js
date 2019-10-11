@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import itens from './itens';
+//import itens from './itens';
 
 const LIMITE_DE_ITENS = 5;
 

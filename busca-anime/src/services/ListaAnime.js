@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+<<<<<<< HEAD
+=======
+//import itens from './itens';
+
+>>>>>>> cd0e57727399ac659aa49e8a948f57b1759f1d50
 const LIMITE_DE_ITENS = 5;
 
 export default class ListaAnime {

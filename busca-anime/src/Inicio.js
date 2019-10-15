@@ -1,47 +1,34 @@
-import React, { Component } from 'react';
-import Menu from '../../components/menu/Menu';
-import anterior from '../../img/anterior.png';
-import ListaService from '../../services/ListaService'
-class Lista extends Component {
+import React, { Component } from 'react'
+
+export default class Inicio extends Component {
     constructor(props) {
         super(props);
         this.state = {
             lista: this.props.location.state.lista,
-            itensFiltrados :[]
+            itensFiltrados: []
         };
-        this.service = new ListaService();
+        this.service = new ListaAnime();
     }
-    /**
+     /**
      * aplica o filtro do usuário nos
      * itens de lista
-     */
+     
     filtrarItens = (event) => {
         //pega o valor digitado do campo de filtro
         let filtro = event.target.value;
         let itensFiltrados = this.service.recuperarItens(filtro);
         console.log(itensFiltrados);
-    }
+    }*/
     render() {
         let { lista } = this.state;
         return (
             <div>
-                <Menu
-                    logo={anterior}
-                    paginaAnterior="/"
-
-                    titulo="Minha lista" />
-                <h3 id="nomeLista">{lista.nome}</h3>
+                 <h3 id="nomeLista">{lista.nome}</h3>
                 <form>
                     <input onChange={this.filtrarItens} name="filtro"
-<<<<<<< HEAD
-                        type="text" />
-=======
                         type="text/" />
->>>>>>> cd0e57727399ac659aa49e8a948f57b1759f1d50
                 </form>
             </div>
-        );
+        )
     }
 }
-
-export default Lista;

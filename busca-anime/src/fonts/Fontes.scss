@@ -1,0 +1,11 @@
+@font-face{
+    font-family: 'item lista';
+    src:url(./Handlee-Regular.ttf);
+}
+@font-face{
+    font-family: 'principal';
+    src:url(./Oswald-Regular.ttf);
+}
+
+$fonte-principal:'principal';
+$fonte-lista:'item lista';

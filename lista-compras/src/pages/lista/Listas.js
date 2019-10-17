@@ -1,54 +1,61 @@
 import React, { Component } from 'react';
-import Menu from '../../components/menu/Menu';
-
-import logo from '../../img/logo.png';
-import ListaService from '../../services/ListaService';
 import { Link } from 'react-router-dom';
 
+import Menu from '../../components/menu/Menu';
+import logo from '../../img/logo.png';
+import ListaService from '../../services/ListaService';
 import './Lista.scss';
 import adicionar from '../../img/adicionar.png';
 import rotas from '../../constants/rotas';
 
-class Listas extends Component {
-    /**
-    * Toda vez que criar um construtor
-    * lembre se de invocar a classe mãe com o "super"
-    */
+export default class Listas extends Component {
+
     constructor() {
+        /**
+         * Toda vez que criar um construtor
+         * em um componente React, lembre-se
+         * de invocar o construtor da classe
+         * mãe Component na primeira linha de
+         * código.
+         */
         super();
+
         this.state = {
             listas: []
         }
-        this.service = new ListaService();
 
+        this.service = new ListaService();
     }
-    //" componentDidMount " --invocar antes do componente ser montado
+
     async componentDidMount() {
         const listas =
             await this.service.recuperarListas();
         this.setState({ listas });
-
     }
-    render() {
-        const listas = this.state.listas.map(lista => (
-            <Link to={
-                {
-                    pathname: rotas.LISTA,
-                    state: { lista }
-                }
-            }
-                key={lista._id}>
-                <div className="item" >{lista.nome}</div>
-            </Link>
 
-        ));
+    render() {
+        const listas =
+            this.state.listas.map(lista => (
+                <Link
+                    to={
+                        {
+                            pathname: rotas.LISTA,
+                            state: { lista }
+                        }
+                    }
+                    key={lista._id}>
+                    <div className="item">{lista.nome}</div>
+                </Link>
+            ));
+
         return (
             <div>
                 <Menu
                     logo={logo}
                     paginaAnterior="/"
-                    titulo="Lista de Compras"></Menu>
-                <div className="container">
+                    titulo="Lista de Compras" />
+
+                <div className="conteiner">
                     <div>
 
                         {
@@ -65,20 +72,22 @@ class Listas extends Component {
 
                         {
                             this.state.listas &&
-                            <p id="menssagemSEmLista">
+                            <p id="mensagemNenhumaLista">
                                 Clique no botão abaixo
                                 para cadastrar uma nova
                                 lista!
                             </p>
                         }
 
-                        <div id="listagem">
+                        <div className="listagem">
                             {listas}
                         </div>
-                        <div id="listagem">{listas}</div>
+
                         <div id="areaBotao">
                             <Link to="/criarlista">
-                                <img src={adicionar} alt="Nova lista" id="botaoNovaLista" />
+                                <div id="botaoNovaLista">
+                                    <img src={adicionar} alt="Nova lista" />
+                                </div>
                             </Link>
                         </div>
                     </div>
@@ -87,5 +96,3 @@ class Listas extends Component {
         );
     }
 }
-
-export default Listas;

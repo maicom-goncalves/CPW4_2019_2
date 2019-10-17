@@ -1,6 +1,6 @@
 const ROTAS = {
     INICIO: '/',
-    LISTA: '/lista',
+    ANIME: '/anime',
 };
 
 export default ROTAS;

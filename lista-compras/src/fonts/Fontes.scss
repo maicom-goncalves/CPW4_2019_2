@@ -1,11 +1,12 @@
-@font-face{
+@font-face {
     font-family: 'item lista';
-    src:url(./Handlee-Regular.ttf);
-}
-@font-face{
-    font-family: 'principal';
-    src:url(./Oswald-Regular.ttf);
+    src: url(./IndieFlower-Regular.ttf);
 }
 
-$fonte-principal:'principal';
-$fonte-lista:'item lista';
+@font-face {
+    font-family: 'principal';
+    src: url(./LexendDeca-Regular.ttf);
+}
+
+$fonte-lista: 'item lista';
+$fonte-principal: 'principal';

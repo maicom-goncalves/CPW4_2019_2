@@ -2,20 +2,22 @@
 @import '../../fonts/Fontes';
 
 .menu {
-    font-family:$fonte-principal;
-    background-color:$cor-menu;
-    color:white;
+    font-family: $fonte-principal;
+    background-color: $cor-font-item3;
+    color: white;
     padding: 20px 10px;
-}
+    margin-bottom: 10px;
 
-*{
-    vertical-align: middle;
-}
-.logo{
-    width: 40px;
-    margin-right: 30px;
-}
+    * {
+        vertical-align: middle;
+    }
 
-span{
-    font-size:30px;
+    .logo {
+        width: 60px;
+        margin-right: 20px;
+    }
+
+    span {
+        font-size: 130%;
+    }
 }

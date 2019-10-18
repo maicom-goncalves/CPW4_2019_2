@@ -13,7 +13,8 @@ export default class Lista extends Component {
 
         this.state = {
             lista: this.props.location.state.lista,
-            itensFiltrados: []
+            itensFiltrados: [],
+            itemSelecionado: {}
         };
 
         this.service = new ListaService();
@@ -34,7 +35,9 @@ export default class Lista extends Component {
     /**
      * Inclui um novo item na lista
      */
-    incluirItem = item => {
+    incluirItem = (item, key) => {
+        let quantidade = document.getElementById(`quantidade${key}`).value;
+        item.quantidade = parseFloat(quantidade);
         let { lista } = this.state;
         /**
          * Se a lista já possui o vetor de
@@ -43,7 +46,13 @@ export default class Lista extends Component {
          */
         lista.itens = lista.itens ? lista.itens : [];
         // Inclui o novo item
-        lista.itens.push(item);
+        const descricao = item.descricao;
+        const resposta = lista.itens.find(
+            item => descricao === item.descricao
+        );
+        if (!resposta) {
+            lista.itens.push(item);
+        }
         this.setState({ lista });
     }
 
@@ -55,25 +64,28 @@ export default class Lista extends Component {
         } = this.state;
         console.log(lista);
 
-        const listaItensFiltrados = itensFiltrados.map((item, key) => {
-            item.quantidade = 1;
-            return (
-                <div key={key} className="itemFiltrado">
-                    <span>{item.descricao}</span>
-                    <input
-                        value={item.quantidade}
-                        type="number"
-                        name="quantidade"
-                        min="0.001"
-                        id="quantidade" />
-                    <span>{item.unidade}</span>
-                    <button onClick={() => this.incluirItem(item)}>
-                        <img src={incluir} alt="Incluir" />
-                    </button>
-                </div>
-            )
-        }
-        );
+        const listaItensFiltrados = itensFiltrados.map((item, key) => (
+            <div key={key} className="itemFiltrado">
+                <span>{item.descricao}</span>
+                <input
+                    value={this.defaultValue}
+                    ref={this.input}
+                    type="number"
+                    name={`quantidade${key}`}
+                    min="0.001"
+                    id={`quantidade${key}`} />
+                <span>{item.unidade}</span>
+                <button onClick={() => this.incluirItem(item, key)}>
+                    <img src={incluir} alt="Incluir" />
+                </button>
+            </div>
+        ));
+
+        const listaItens = lista.itens ? lista.itens.map((item, key) => (
+            <li key={key}>
+                {`${item.quantidade} ${item.unidade} de ${item.descricao}`}
+            </li>
+        )) : [];
 
         return (
             <div>
@@ -83,7 +95,7 @@ export default class Lista extends Component {
                     titulo="Minha lista" />
 
                 <div className="conteiner">
-                    <h3 id="nomeLista">{lista.nome}</h3>
+                    <h3 id="nomeLista"><b>{lista.nome}</b></h3>
 
                     <form>
                         <input
@@ -96,6 +108,14 @@ export default class Lista extends Component {
                     <div className="listagem">
                         {listaItensFiltrados}
                     </div>
+                    <div className="itens-compra">
+                        
+                        <ul>
+                        {listaItens}
+                        </ul>
+                        
+                    </div>
+
                 </div>
             </div>
         );

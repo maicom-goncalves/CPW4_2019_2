@@ -24,7 +24,7 @@
     }
 
     #areaBotao {
-        margin: 5px;
+        margin: 1px;
 
         #botaoNovaLista {
             padding: 15px 20px 15px 15px;
@@ -98,6 +98,25 @@
         text-decoration: none;
         color: $cor-titulo;
     }
+}
+.itens-compra{
+     text-align: center;
+     padding: 25px;
+     width: 50%;
+     margin: 0px auto 20px auto;
+    ul{
+     
+      font-family: $fonte-principal;
+      background-color: $cor-menu;   
+      border-radius: 5px;
+      margin :2px;
+       //list-style-type: none;
+     
+     }
+    
+     
+     
+    
 }
 
 form {

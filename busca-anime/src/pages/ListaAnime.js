@@ -41,7 +41,7 @@ export default class componentName extends Component {
 
         {
             this.state.animes &&
-            <p id="mensagemNenhumaLista">
+            <p id="nenhuma">
                
                 lista!
             </p>

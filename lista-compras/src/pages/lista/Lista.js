@@ -82,7 +82,9 @@ export default class Lista extends Component {
         ));
 
         const listaItens = lista.itens ? lista.itens.map((item, key) => (
+
             <li key={key}>
+                   <input type="checkbox"></input>
                 {`${item.quantidade} ${item.unidade} de ${item.descricao}`}
             </li>
         )) : [];
@@ -109,11 +111,10 @@ export default class Lista extends Component {
                         {listaItensFiltrados}
                     </div>
                     <div className="itens-compra">
-                        
+                        <br/> 
                         <ul>
-                        {listaItens}
+                        {listaItens} 
                         </ul>
-                        
                     </div>
 
                 </div>

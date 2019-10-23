@@ -24,16 +24,16 @@
     }
 
     #areaBotao {
-        margin: 1px;
+        margin: 0px;
 
         #botaoNovaLista {
-            padding: 15px 20px 15px 15px;
-            background-color: $cor-menu;
-            border-radius: 50%;
+            //padding: 10px;
+            //background-color: $cor-menu;
+            //border-radius: 50%;
             float: right;
 
             img {
-                width: 40px;
+                width: 60px;
             }
         }
     }
@@ -103,15 +103,20 @@
      text-align: center;
      padding: 25px;
      width: 50%;
-     margin: 0px auto 20px auto;
+     margin: 0px auto auto;
+     background-image: url("../../img/folha-caderno3.jpg");
+     border-radius: 5px;
     ul{
-     
-      font-family: $fonte-principal;
-      background-color: $cor-menu;   
-      border-radius: 5px;
+      font-family: $fonte-lista;
+      list-style-position: inside;
+      
       margin :2px;
-       //list-style-type: none;
-     
+      font-size: 30px;
+      list-style-type: none;
+      input{
+        width: 35px;
+        height: 35px;
+      }
      }
     
      

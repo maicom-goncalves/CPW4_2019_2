@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'decorativa';
+    src: url(./NotoSansSC-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'padrao';
+    src: url(./Anton-Regular.ttf);
+}
+@font-face {
+    font-family: 'negrito';
+    src: url(./NotoSansSC-Bold.otf);
+}
+
+$fonte-decorativa: 'decorativa';
+$fonte-padrao: 'padrao';
+$fonte-negrito: 'negrito';

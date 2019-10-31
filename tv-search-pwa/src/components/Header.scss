@@ -1,20 +1,19 @@
 @import '../Cores';
 @import '../fonts/Fontes';
-.header{
+
+.header {
     background-color: $cor2;
-    
     padding: 5px 10px;
-    *{
-        vertical-align: middle;
-    }
-    img{
+
+    img {
         width: 50px;
         margin-right: 20px;
     }
-    span{
-        font-family:$fonte-decorativa;
-        color:black;
-        font-size: 150%;
+
+    span {
+        color: white;
+        font-family: $fonte-decorativa;
+        font-size: 160%;
         vertical-align: 10px;
         text-shadow: 2px 2px #333333;
     }

@@ -1,31 +1,28 @@
 import axios from 'axios';
-import titles from './titles';
+import * as serviceConfig from './ServiceConfig';
 
 
 export default class AnimeService {
     constructor() {
-        this.animes = [];
+        this.anime = [];
         this.api = axios.create({
             baseURL: 'https://api.jikan.moe/v3/search/anime?q='
-
         });
     }
-    async recuperarAnime() {
-        let resposta = await this.api.get('/');
-        this.animes = resposta.data;
-        return this.animes;
+    
+    async recuperarAnime(anime) {
+        let resposta = await this.api.get(anime.nome) 
+        this.anime = resposta.data;
+        return this.anime;
     }
-    recuperarAnimes(termo) {
-        if (!termo) {
-            return [];
-        }
-        termo = termo.toLowerCase();
-       
-        let animesFiltrados = titles.filter(anime => {
-            let title = anime.title.toLowerCase();
-            return title.includes(termo);
-        });
-
-        return animesFiltrados;
+    recuperarAnimes(consultar) {
+        consultar = consultar.toLowerCase().trim();
+        const urlPesquisa =
+            `${serviceConfig.URL_API}` +
+            `key=${serviceConfig.CHAVE_API}` +
+            `&q=${consultar}` +
+            `&lang=${serviceConfig.LINGUA}` +
+            `&image_type=${serviceConfig.TIPO_IMAGEM}`;
+        return axios.get(urlPesquisa);
     }
 }

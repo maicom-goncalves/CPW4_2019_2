@@ -82,7 +82,7 @@ export default class Listas extends Component {
                         <div className="listagem">
                             {listas}
                         </div>
-
+1px
                         <div id="areaBotao">
                             <Link to="/criarlista">
                                 <div id="botaoNovaLista">

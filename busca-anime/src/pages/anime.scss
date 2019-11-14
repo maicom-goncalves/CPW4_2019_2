@@ -1,49 +1,64 @@
 @import '../cores';
 @import '../fonts/Fontes';
 
-#buscador{
+#formNovaLista{
     text-align: center;
-    font-family: $fonte-principal;
-    color:white;
-    background-color:whitesmoke;
-    padding:15px;
-    border-radius: 5px;
-}
-.cartao{
-    display: flex;
-    flex-direction: row;
-    padding:10px;
-    margin:3% 20% 3% 20% ;
     border-radius: 15px;
-    border-style: solid;
-    border-color:$cor-font-item3;
-    background-color: rgba(0, 143, 214, 0.068); 
+    padding:35px;
+    font-family: $fonte-principal;
     
+    #buscador{
+        color:#ffffffe1;
+        background-color:#000000cc;
+        margin: 5px;
+        padding: 5px;
+    }
+    #botao{
+        color: white;
+        background-color:$cor-fundo-item1;
+        padding: 5px;
+    }
+
+}
+    
+.cartao{
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        max-width: 1000px;
+        border-radius: 15px;
+        border: 1px solid black;
+        padding: 15px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 300px;
+        margin-right: 300px;
     .img{
-        flex: 1;
-	    margin:10px ;
-        text-align: left;
-         padding:10px;
-         width: 10px;
-         height: 400px;
+        margin:6px ;
+        padding: 2px;
+        
     }
     
-    .card_principal{
-        flex: 2;
-        padding:20px;
-        display:column;
-        .card_titulo{
-        flex:1;    
+    .carton_principal{
+        .carton_titulo{
         text-align: center;
         font-family: $fonte-principal;
         color:$cor-menu;
         font-size: 40px;
             }
-        .card_texto{
-        flex:2;    
+        .carton_texto{
         text-align: justify;
         font-size: 24px;
         font-family: $fonte-lista;
+          #tipo{
+              background-color: $cor-font-item3;
+          }
+          #episodios{
+            background-color: $cor-fundo-item2;
+          }
+          #data{
+              background-color: $cor-fundo-item1;
+          }
         
     }
 

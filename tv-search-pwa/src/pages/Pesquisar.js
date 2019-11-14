@@ -5,7 +5,7 @@ import logo from '../img/logo.png';
 import imgDefault from '../img/imgDefault.png';
 import Header from '../components/Header';
 import SeriesService from '../services/SeriesService';
-
+import './Pesquisar.scss';
 export default class Pesquisar extends Component {
     constructor() {
         super();
@@ -22,7 +22,7 @@ export default class Pesquisar extends Component {
          * Seta para "true " carregando 
          * sinalizando que a animação de loading deve ser exibido
          */
-        this.setState({ carregando: true ,textoPesquisa: consulta})
+        this.setState({ carregando: true ,textoPesquisa: consulta,series:[]})
         this.service.pesquisar(consulta)
             .then(resposta => this.setState({
                 series: resposta.data,
@@ -68,10 +68,11 @@ export default class Pesquisar extends Component {
                     this.state.carregando &&
                     <div id="areaLoading">
                         <ReactLoading
+                            id="animacao"
                             type="bars"
-                            color="#000000"
-                            height="60px"
-                            width="60px" />
+                            color="#33a1fd"
+                            height="260px"
+                            width="260px" />
 
                     </div>
                 }

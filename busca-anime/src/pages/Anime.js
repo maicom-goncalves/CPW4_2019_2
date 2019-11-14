@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './anime.scss';
 import rotas from '../constants/rotas';
-import Rotas from '../Rotas';
+
 import AnimeService from '../services/AnimeService';
 
 export default class componentName extends Component {
@@ -44,9 +44,13 @@ export default class componentName extends Component {
                     }
                     key={anime.mal_id}>
                     <div className="icon">
-                        <img className="imagem" src={anime.image_url} />
+                        <img className="imagem" src={anime.image_url} alt="imagem-do-anime" />
                         <div className="text">{anime.title} </div>
                         <div className="text">{anime.synopsis}</div>
+                        <div className="text">{anime.type}</div>
+                        <div className="text">{anime.episodes}</div>
+                        <div className="card_texto">{anime.start_date}</div>
+                        <div className="card_texto">{anime.end_date}</div>
                     </div>
                 </Link>
             ));

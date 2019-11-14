@@ -40,15 +40,15 @@ export default class Inicio extends Component {
             <div className="conteiner" onSubmit={this.consultar}>
                  <form  id="formNovaLista" >
                     <input 
+                    id="buscador"
                     type="text" 
                     name="nome" 
                     value={this.state.nome}
                     required
                     placeholder="Digite o nome do seu anime"  
                     onChange={this.aoAlterarNome}
-                
                     />
-                    <input type="submit" value="Buscar"  />
+                    <input id="botao" type="submit" value="Buscar"  />
                   </form>    
               </div>  
 

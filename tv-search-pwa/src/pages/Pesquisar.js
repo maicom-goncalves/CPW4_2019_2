@@ -5,6 +5,7 @@ import logo from '../img/logo.png';
 import imgDefault from '../img/imgDefault.png';
 import Header from '../components/Header';
 import SeriesService from '../services/SeriesService';
+<<<<<<< HEAD
 import './Pesquisar.scss';
 export default class Pesquisar extends Component {
     constructor() {
@@ -50,12 +51,47 @@ export default class Pesquisar extends Component {
         });
         const naoTemResultadoParaExibir = listaSeries.length===0;
         const usuarioEstaPesquisando = textoPesquisa.length >0;
+=======
+
+export default class Pesquisar extends Component {
+    constructor(){
+        super();
+        this.state={
+            series:[]
+        }
+        this.service = new SeriesService();
+    }
+    pesquisar = event =>{
+        const consulta = event.target.value;
+        this.service.pesquisar(consulta)
+        .then(resposta => this.setState({
+            series: resposta.data
+        }))
+        .catch(erro => console.log(erro));
+    }
+    render() {
+        const { series } = this.state;
+        const listaSeries = series.map(serie =>{
+            let imagem=imgDefault;
+            if(serie.show.image && serie.show.image.medium){
+                imagem=serie.show.image.medium;
+            }
+         return(
+            <div key={serie.show.id} className="serie">
+                <img src={imagem} alt="Cartaz da série"/>
+                <span>{serie.show.name}</span>
+            </div>
+        )
+        
+        });
+>>>>>>> e65c48b933771f29e9d4ed8f5d164fb24e52d1af
         return (
             <div>
                 <Header
                     enderecoPaginaAnterior="/"
                     logo={logo}
                     titulo="T V - S E A R C H" />
+<<<<<<< HEAD
                 <div id="areaPesquisa">
                     <input 
                     value={this.state.textoPesquisa}
@@ -83,6 +119,14 @@ export default class Pesquisar extends Component {
                     }
                     {listaSeries}
                 </div>
+=======
+                    <div id="areaPesquisa">
+                        <input id="campoPesquisa" type="text" onChange={this.pesquisar} placeholder="Digite o nome da série"/>
+                    </div>
+                    <div id="areaResultados">
+                        {listaSeries}
+                    </div>
+>>>>>>> e65c48b933771f29e9d4ed8f5d164fb24e52d1af
 
             </div>
         )

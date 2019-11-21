@@ -1,132 +1,129 @@
 import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom';
 
 import logo from '../img/logo.png';
 import imgDefault from '../img/imgDefault.png';
 import Header from '../components/Header';
 import SeriesService from '../services/SeriesService';
-<<<<<<< HEAD
 import './Pesquisar.scss';
+
 export default class Pesquisar extends Component {
+
     constructor() {
         super();
+
         this.state = {
             series: [],
             carregando: false,
-            textoPesquisa:''
+            textoPesquisa: ''
         }
+
         this.service = new SeriesService();
     }
+
     pesquisar = event => {
         const consulta = event.target.value;
-        /** 
-         * Seta para "true " carregando 
-         * sinalizando que a animação de loading deve ser exibido
+        /**
+         * Seta para "true" a flag "carregando",
+         * sinalizando que a animação de loading
+         * deve ser exibida
          */
-        this.setState({ carregando: true ,textoPesquisa: consulta,series:[]})
-        this.service.pesquisar(consulta)
+        this.setState({
+            carregando: true,
+            textoPesquisa: consulta,
+            series: []
+        });
+
+        this.service
+            .pesquisar(consulta)
             .then(resposta => this.setState({
                 series: resposta.data,
                 carregando: false
             }))
             .catch(erro => {
                 console.log(erro);
-                this.setState({ carregando: false })
+                this.setState({ carregando: false });
             });
     }
+
     render() {
-        const { series ,textoPesquisa} = this.state;
+        const { series, textoPesquisa } = this.state;
+        console.log(series);
+
+
         const listaSeries = series.map(serie => {
             let imagem = imgDefault;
             if (serie.show.image && serie.show.image.medium) {
                 imagem = serie.show.image.medium;
             }
+
             return (
                 <div key={serie.show.id} className="serie">
-                    <img src={imagem} alt="Cartaz da série" />
-                    <span>{serie.show.name}</span>
+                    <Link to={
+                        {
+                            pathname: '/serie',
+                            state: { serie, imagem }
+                        }
+                    }>
+                        <img
+                            src={imagem}
+                            alt="Cartaz da série" />
+                    </Link>
+
+                    <Link to={
+                        {
+                            pathname: '/serie',
+                            state: { serie }
+                        }
+                    }>
+                        <span>{serie.show.name}</span>
+                    </Link>
                 </div>
             )
-
         });
-        const naoTemResultadoParaExibir = listaSeries.length===0;
-        const usuarioEstaPesquisando = textoPesquisa.length >0;
-=======
 
-export default class Pesquisar extends Component {
-    constructor(){
-        super();
-        this.state={
-            series:[]
-        }
-        this.service = new SeriesService();
-    }
-    pesquisar = event =>{
-        const consulta = event.target.value;
-        this.service.pesquisar(consulta)
-        .then(resposta => this.setState({
-            series: resposta.data
-        }))
-        .catch(erro => console.log(erro));
-    }
-    render() {
-        const { series } = this.state;
-        const listaSeries = series.map(serie =>{
-            let imagem=imgDefault;
-            if(serie.show.image && serie.show.image.medium){
-                imagem=serie.show.image.medium;
-            }
-         return(
-            <div key={serie.show.id} className="serie">
-                <img src={imagem} alt="Cartaz da série"/>
-                <span>{serie.show.name}</span>
-            </div>
-        )
-        
-        });
->>>>>>> e65c48b933771f29e9d4ed8f5d164fb24e52d1af
+        const naoTemResultadoParaExibir =
+            listaSeries.length === 0;
+        const usuarioEstaPesquisando =
+            textoPesquisa.length > 0;
+
         return (
             <div>
                 <Header
                     enderecoPaginaAnterior="/"
                     logo={logo}
-                    titulo="T V - S E A R C H" />
-<<<<<<< HEAD
+                    titulo="TV Search" />
+
                 <div id="areaPesquisa">
-                    <input 
-                    value={this.state.textoPesquisa}
-                    id="campoPesquisa" 
-                    type="text" 
-                    onChange={this.pesquisar} 
-                    placeholder="Digite o nome da série" />
+                    <input
+                        value={this.state.textoPesquisa}
+                        id="campoPesquisa"
+                        onChange={this.pesquisar}
+                        placeholder="Digite o nome da série"
+                        type="text" />
                 </div>
+
                 {
                     this.state.carregando &&
                     <div id="areaLoading">
                         <ReactLoading
                             id="animacao"
                             type="bars"
-                            color="#33a1fd"
-                            height="260px"
-                            width="260px" />
-
+                            color="#00b5cc"
+                            height="60px"
+                            width="60px" />
                     </div>
                 }
+
                 <div id="areaResultados">
                     {
-                        (naoTemResultadoParaExibir && usuarioEstaPesquisando) &&
-                        <span> NENHUMA SÉRIE ENCONTRADA</span>
+                        (naoTemResultadoParaExibir
+                            && usuarioEstaPesquisando) &&
+                        <span id="mensagemNaoEncontrado">Nenhuma série encontrada</span>
                     }
                     {listaSeries}
                 </div>
-=======
-                    <div id="areaPesquisa">
-                        <input id="campoPesquisa" type="text" onChange={this.pesquisar} placeholder="Digite o nome da série"/>
-                    </div>
-                    <div id="areaResultados">
-                        {listaSeries}
-                    </div>
->>>>>>> e65c48b933771f29e9d4ed8f5d164fb24e52d1af
 
             </div>
         )

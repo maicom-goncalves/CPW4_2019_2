@@ -42,8 +42,22 @@
             font-size: 85%;
             margin-top: 10px;
         }
+        a {
+            color: black;
+            text-decoration: none;
+
+            &:hover {
+                color: $cor1;
+            }
+        }
+        
 
     }
+    #mensagemNaoEncontrado {
+            display: block;
+            text-align: center;
+            font-family: $fonte-padrao;
+        }
 }
 
 #areaLoading{

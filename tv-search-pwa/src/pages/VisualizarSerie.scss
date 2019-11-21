@@ -1,27 +1,48 @@
 @import '../Cores';
 @import '../fonts/Fontes';
 
-#areaCartaz,#areaDadosSerie{
+    
+    #areaCartaz,#areaDadosSerie{
     display:inline-block;
+    //background-color: #cd5c5c4f;
 }
 #areaCartaz{
-    width: 35%;
+    width: 30%;
     text-align: center;
     vertical-align: top;
     padding-top: 15px;
 
 }
 #areaDadosSerie{
-    width : 65%;
+    font-size: 20px;
+    width : 50%;
     font-family: $fonte-padrao;
+    
     h2{
         font-family: $fonte-negrito;
     }
     .nomeCampo{
         font-family: $fonte-negrito;
         margin-right: 5px;
+        
     }
     #sinopse{
         display: inline;
+        
+        
     }
+}
+
+@media only screen and (max-width: 768px){
+    #areaCartaz,#areaDadosSerie{
+        display:block;
+        width: 90%;
+        font-size: 20px;
+       
+    }
+    #areaDadosSerie{
+         text-align: justify;
+         padding-left: 15px;
+    }
+
 }

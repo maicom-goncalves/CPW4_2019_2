@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import logo from '../img/paginaAnterior.png';
 import Header from '../components/Header';
-import  './VisualizarSerie.scss';
+import './VisualizarSerie.scss';
 export default class VisualizarSerie extends Component {
     render() {
 
@@ -29,8 +29,8 @@ export default class VisualizarSerie extends Component {
         const canalWeb = dados.webChannel ? dados.webChannel.name : '';
         const { status } = dados;
 
-        const regex= /(<([^>]+)>)/ig;
-        const sinopse = dados.summary;
+        const regex = /(<([^>]+)>)/ig;
+        const sinopse = dados.summary.replace(regex, '');
 
         return (
             <div>
@@ -42,39 +42,39 @@ export default class VisualizarSerie extends Component {
                 <div id="areaCartaz">
                     <img src={imagem} alt="Cartaz" />
                 </div>
+                
+                    <div id="areaDadosSerie">
+                        <h2>{titulo}</h2>
 
-                <div id="areaDadosSerie">
-                    <h2>{titulo}</h2>
-                    
-                    <span className="nomeCampo">Gênero:</span>
-                    <span>{generos}</span>
-                    <br/>
-                    <span className="nomeCampo">Lingua:</span>
-                    <span>{lingua}</span>
-                    {
-                        canalTV &&
-                        <div>
-                            <br/>
-                        <span className="nomeCampo">Canal-TV:</span>
-                        <span id="canalTV">{canalTV}</span>
-                        </div>
-                    }
-                    {
-                        canalWeb &&
-                        <div>
-                            <br/>
-                        <span className="nomeCampo">Streaming:</span>    
-                        <span id="canalWeb">{canalWeb}</span>
-                        </div>
-                    }
-                    <br/>
-                    <span className="nomeCampo">Status:</span>
-                    <span><i>{status}</i></span>
-                    <br/>
-                    <span className="nomeCampo">Sinopse:</span>
-                    <div id="sinopse">{sinopse}</div>
+                        <span className="nomeCampo">Gênero:</span>
+                        <span>{generos}</span>
+                        <br />
+                        <span className="nomeCampo">Lingua:</span>
+                        <span>{lingua}</span>
+                        {
+                            canalTV &&
+                            <div>
+                                <br />
+                                <span className="nomeCampo">Canal-TV:</span>
+                                <span id="canalTV">{canalTV}</span>
+                            </div>
+                        }
+                        {
+                            canalWeb &&
+                            <div>
+                                <br />
+                                <span className="nomeCampo">Streaming:</span>
+                                <span id="canalWeb">{canalWeb}</span>
+                            </div>
+                        }
+                        <br />
+                        <span className="nomeCampo">Status:</span>
+                        <span><i>{status}</i></span>
+                        <br />
+                        <span className="nomeCampo">Sinopse:</span>
+                        <div id="sinopse">{sinopse}</div>
+                    </div>
                 </div>
-            </div>
         )
     }
 }

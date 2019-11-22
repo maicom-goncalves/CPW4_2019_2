@@ -1,0 +1,9 @@
+passos do firebase:
+(Inicialização)
+1 - firebase login (opcionalmente execute fibase logout)
+2 - firebase init
+
+(Deploy)
+escolher com seta e marcar com barra de espaços
+3 -firebase serve
+4 -firebase deploy

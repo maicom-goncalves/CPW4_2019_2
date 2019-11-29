@@ -36,13 +36,18 @@
 @media only screen and (max-width: 768px){
     #areaCartaz,#areaDadosSerie{
         display:block;
-        width: 90%;
         font-size: 20px;
-       
+    }
+    #areaCartaz{
+        width: 100%;
     }
     #areaDadosSerie{
-         text-align: justify;
-         padding-left: 15px;
+        padding:0px 10px  20px 10px ;
+        h2{
+            text-align: center;
+        }
+         //text-align: justify;
+         
     }
 
 }

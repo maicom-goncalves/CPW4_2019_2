@@ -153,3 +153,47 @@ form {
         }
     }
 }
+@media only screen and (max-width: 768px){
+    .listagem {
+        .item {
+            padding: 5px;
+            border-radius: 7px;
+            width: 90%;
+            margin: 0px auto 2px auto;
+        }
+        .itemFiltrado {
+            width: 80%;
+            margin: 0px auto 2px auto;
+            font-size: 70%;
+
+        }
+        .itens-compra{
+            width: 90%;
+            margin: 0px auto 2px auto;
+            font-size: 70%;
+            padding: 5px;
+            margin: 1px;
+            font-size: 20px;
+        }
+
+    }
+    form {
+        
+        input {
+            display:inline;
+            margin: 1px;
+            padding: 1px 5px;
+            text-align: center;
+            &[type=text] {
+                width: 90%;
+                height: 35px;
+                text-align: center;
+            }
+            &[type=submit] {
+                width: 90%;
+                 text-align: center;
+            }
+        }
+
+    }
+}

@@ -17,10 +17,21 @@ export default class ListaService {
         this.listas = resposta.data;
         return this.listas;
     }
-
+    
     async salvar(lista) {
         await this.api.post('/', lista);
     }
+    async atualizar(lista) {
+        await this.api.post('/',lista);
+    }
+
+    //testar metodo apagar
+    async apagar(lista,id) {
+        console.log(lista)
+        console.log(id);
+        await this.api.delete('/:',id);
+    }
+
 
     recuperarItens(termo) {
         /**
@@ -45,6 +56,11 @@ export default class ListaService {
         }
 
         return itensFiltrados;
+    }
+
+    //incluir item na lista
+    async incluirItem (lista, item){
+        await this.api.post('/', lista/item);
     }
 
 }

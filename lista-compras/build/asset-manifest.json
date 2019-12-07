@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.58627115.chunk.css",
+    "main.js": "/static/js/main.015ad289.chunk.js",
+    "main.js.map": "/static/js/main.015ad289.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.90ae9b3d.js",
+    "runtime~main.js.map": "/static/js/runtime~main.90ae9b3d.js.map",
+    "static/js/2.c1908a15.chunk.js": "/static/js/2.c1908a15.chunk.js",
+    "static/js/2.c1908a15.chunk.js.map": "/static/js/2.c1908a15.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.216f27e59262b4fce17861b4bb1ef2b8.js": "/precache-manifest.216f27e59262b4fce17861b4bb1ef2b8.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.58627115.chunk.css.map": "/static/css/main.58627115.chunk.css.map",
+    "static/media/Menu.scss": "/static/media/Schoolbell-Regular.4a7aed80.ttf",
+    "static/media/delete.png": "/static/media/delete.e2753e63.png",
+    "static/media/Lista.scss": "/static/media/folha-caderno3.18738008.jpg",
+    "static/media/incluir.png": "/static/media/incluir.abde5382.png"
+  }
+}

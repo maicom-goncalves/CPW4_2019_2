@@ -66,7 +66,10 @@ export default class Lista extends Component {
 
         const listaItensFiltrados = itensFiltrados.map((item, key) => (
             <div key={key} className="itemFiltrado">
-                <span>{item.descricao}</span>
+                <div id="parteUm">
+                  <span>{item.descricao}</span>  
+                </div>
+                
                 <input
                     value={this.defaultValue}
                     ref={this.input}
@@ -74,10 +77,11 @@ export default class Lista extends Component {
                     name={`quantidade${key}`}
                     min="0.001"
                     id={`quantidade${key}`} />
-                <span>{item.unidade}</span>
+                
                 <button onClick={() => this.incluirItem(item, key)}>
                     <img src={incluir} alt="Incluir" />
                 </button>
+                <span>{item.unidade}</span>
             </div>
         ));
 
@@ -113,7 +117,8 @@ export default class Lista extends Component {
                     <div className="itens-compra">
                         <br/> 
                         <ul>
-                        {listaItens} 
+                            <li>{listaItens}</li>
+                        
                         </ul>
                     </div>
 

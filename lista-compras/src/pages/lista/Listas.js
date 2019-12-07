@@ -6,8 +6,9 @@ import logo from '../../img/logo.png';
 import ListaService from '../../services/ListaService';
 import './Lista.scss';
 import adicionar from '../../img/adicionar.png';
+import apagar from '../../img/delete.png';
+import editar from '../../img/editar.png';
 import rotas from '../../constants/rotas';
-
 export default class Listas extends Component {
 
     constructor() {
@@ -33,19 +34,41 @@ export default class Listas extends Component {
         this.setState({ listas });
     }
 
+
+    //teste apagar lista
+    apagar = (lista, id) => {
+
+        //let { lista } = this.state;
+        const service = new ListaService();
+        this.setState({ lista, id })
+        service.apagar(lista, id);
+    }
     render() {
         const listas =
             this.state.listas.map(lista => (
-                <Link
-                    to={
-                        {
-                            pathname: rotas.LISTA,
-                            state: { lista }
+                <div className="item" >
+                    <Link
+                        to={
+                            {
+                                pathname: rotas.LISTA,
+                                state: { lista }
+                            }
                         }
-                    }
-                    key={lista._id}>
-                    <div className="item">{lista.nome}</div>
-                </Link>
+                        key={lista._id}>
+                        <div className="item">{lista.nome}</div>
+
+
+                    </Link>
+                    <button onClick={() => this.apagar(lista, `${lista._id}`)}>
+                        <img src={apagar} alt="apagar-lista" />
+                    </button>
+                    <Link to="/editarlista">
+                        <button id="botaoNovaLista">
+                            <img src={editar} alt="editar-lista" />
+                        </button>
+                    </Link>
+
+                </div>
             ));
 
         return (
@@ -81,8 +104,11 @@ export default class Listas extends Component {
 
                         <div className="listagem">
                             {listas}
+
+
+
                         </div>
-1px
+
                         <div id="areaBotao">
                             <Link to="/criarlista">
                                 <div id="botaoNovaLista">

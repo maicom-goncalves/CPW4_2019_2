@@ -5,7 +5,7 @@ import icone from '../../img/paginaAnterior.png';
 import ListaService from '../../services/ListaService';
 import ROTAS from '../../constants/rotas';
 
-export default class CriarLista extends Component {
+export default class EditarLista extends Component {
 
     state = {
         nome: ''
@@ -16,7 +16,7 @@ export default class CriarLista extends Component {
         this.setState({ nome });
     }
 
-    salvar = (event) => {
+    atualizar = (event) => {
         /**
          * Previne o comportamento padrão
          * do formulário, que é recarregar
@@ -26,7 +26,7 @@ export default class CriarLista extends Component {
 
         const service = new ListaService();
         const lista = this.state;
-        service.salvar(lista);
+        service.atualizar(lista);
 
         /**
          * Faz o encaminhamento para a
@@ -40,10 +40,10 @@ export default class CriarLista extends Component {
             <div>
                 <Menu
                     paginaAnterior="/"
-                    titulo="Criar lista"
+                    titulo="Atualizar Lista"
                     logo={icone} />
 
-                <form id="formNovaLista" onSubmit={this.salvar}>
+                <form id="formNovaLista" onSubmit={this.atualizar}>
                     <input
                         onChange={this.aoAlterarNome}
                         type="text"
@@ -51,7 +51,7 @@ export default class CriarLista extends Component {
                         value={this.state.nome}
                         required
                         placeholder="Digite o nome da lista" />
-                    <input type="submit" value="Criar" />
+                    <input type="submit" value="Atualizar" />
                 </form>
 
             </div>

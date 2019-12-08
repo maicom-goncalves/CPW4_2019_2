@@ -10,6 +10,8 @@ export default class ListaService {
         this.api = axios.create({
             baseURL: 'http://localhost:3001/listas'
         });
+
+        this.apagar=this.apagar.bind(this);
     }
 
     async recuperarListas() {
@@ -20,16 +22,19 @@ export default class ListaService {
     
     async salvar(lista) {
         await this.api.post('/', lista);
+        
     }
     async atualizar(lista) {
-        await this.api.post('/',lista);
+        await this.api.put(`/${lista._id}`);
+        
     }
 
     //testar metodo apagar
-    async apagar(lista,id) {
-        console.log(lista)
-        console.log(id);
-        await this.api.delete('/:',id);
+    async apagar(lista) {
+        let resposta= this.api.delete(`/${lista._id}`);
+
+       // this.listas = resposta.data;
+       // return this.listas;  
     }
 
 

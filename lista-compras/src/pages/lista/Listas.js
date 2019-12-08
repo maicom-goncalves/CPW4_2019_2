@@ -36,17 +36,17 @@ export default class Listas extends Component {
 
 
     //teste apagar lista
-    apagar = (lista, id) => {
+    apagar = (lista) => {
 
         //let { lista } = this.state;
         const service = new ListaService();
-        this.setState({ lista, id })
-        service.apagar(lista, id);
+        this.setState({ lista })
+        service.apagar(lista);
     }
     render() {
         const listas =
             this.state.listas.map(lista => (
-                <div className="item" >
+                <div className="item">
                     <Link
                         to={
                             {
@@ -59,7 +59,7 @@ export default class Listas extends Component {
 
 
                     </Link>
-                    <button onClick={() => this.apagar(lista, `${lista._id}`)}>
+                    <button onClick={() => this.apagar(lista)}>
                         <img src={apagar} alt="apagar-lista" />
                     </button>
                     <Link to="/editarlista">

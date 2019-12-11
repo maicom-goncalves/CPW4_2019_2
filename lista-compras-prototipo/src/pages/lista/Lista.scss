@@ -1,0 +1,246 @@
+@import '../../Cores';
+@import '../../fonts/Fontes';
+
+.conteiner {
+    padding: 0px 10px;
+
+    h2 {
+        color: $cor-titulo;
+        font-family: $fonte-principal;
+        padding-left: 5px;
+    }
+
+    #nomeLista {
+        text-align: center;
+        color: $cor-titulo;
+        font-family: $fonte-principal;
+    }
+
+    #mensagemNenhumaLista {
+        color: $cor-titulo;
+        font-family: $fonte-principal;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #areaBotao {
+        margin: 0px;
+
+        #botaoNovaLista {
+            float: right;
+
+            img {
+                width: 60px;
+            }
+        }
+    }
+}
+
+.listagem {
+    margin: 5px;
+
+    .item {
+        text-align: center;
+        font-family: $fonte-principal;
+        background-color: $cor-fundo-item1;
+        padding: 25px;
+        width: 50%;
+        border-radius: 5px;
+        margin: 0px auto 20px auto;
+        button{
+            
+            margin-left: 20px;
+            img{
+                width: 17px;
+                
+            }
+        }
+    }
+
+    .itemFiltrado {
+        font-family: $fonte-principal;
+        font-size: 90%;
+        padding: 10px;
+        width: 50%;
+        margin: 0px auto 10px auto;
+        background-color:$cor-fundo-item1;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px #67edf7;
+        text-align: center;
+
+        * {
+            vertical-align: middle;
+        }
+
+        span:first-child {
+            margin-right: 10px;
+        }
+
+        input {
+            margin-right: 5px;
+            height: 20px;
+            font-size: 100%;
+            border: 1px solid $cor-menu;
+            border-radius: 5px;
+            font-family: $fonte-principal;
+            padding: 5px 10px;
+            width: 40px;
+        }
+
+        button {
+            background:none ;
+            border-radius: 48px;
+            //border: none;
+            outline: none;
+
+                .button:hover {background-color:#e49579; }
+
+                .button:active {
+                background-color: #92441d;
+                box-shadow: 0 5px #301a10;
+                transform: translateY(4px);
+                }
+
+                img {
+                    width: 40px;
+                    vertical-align: middle;
+                }             
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $cor-titulo;
+    }
+}
+.itens-compra{
+     text-align: justify;
+     padding: 25px;
+     width: 50%;
+     margin: 0px auto auto;
+     background-image: url("../../img/folha-caderno3.jpg");
+     border-radius: 5px;
+    ul{
+      font-family: $fonte-lista;
+      list-style-position: inside;
+      vertical-align: middle; 
+      //margin-bottom :2px;
+      font-size: 30px;
+      list-style-type: none;
+
+      li{
+        margin-bottom :12px;
+        vertical-align: middle; 
+      }
+
+      input{
+        width: 35px;
+        height: 35px;
+      }
+
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        margin-left: 20px;
+
+        img {
+            width: 38px; 
+            vertical-align: middle;  
+        }
+    }
+    
+       #confirm{
+        vertical-align: middle; 
+        margin-right: 20px;
+       }
+     }
+    
+     
+     
+    
+}
+
+form {
+    padding: 10px;
+
+    input {
+        display: block;
+        margin: auto;
+
+        &[type=text] {
+            width: 50%;
+            height: 35px;
+            font-size: 100%;
+            border: 1px solid $cor-menu;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: $fonte-principal;
+            padding: 5px 10px;
+        }
+
+        &[type=submit] {
+            width: 40%;
+            padding: 15px;
+            background-color: $cor-menu;
+            color: white;
+            border-radius: 7px;
+            font-size: 120%;
+            font-family: $fonte-principal;
+        }
+    }
+}
+@media only screen and (max-width: 768px){
+    .conteiner{
+        .listagem {
+                .item {
+                    padding:8px;
+                    border-radius: 7px;
+                    width: 95%;
+                    margin: 0px 10px 6px auto;
+                }
+                .itemFiltrado {
+                    width: 80%;
+                    margin: 0px auto 2px auto;
+                    font-size: 90%;
+                    padding: 2px;
+
+                }
+            
+            }
+        .itens-compra{
+                    text-align: justify;
+                    width: 90%;
+                    margin: 0px auto 2px auto;
+                    font-size: 70%;
+                    padding: 5px;
+                    margin-left: 13px;
+                    
+                    ul{
+                        font-size: 23px;
+                    }
+                }
+        form {
+                
+                input {
+                    display:inline;
+                    margin: 1px;
+                    padding: 1px 5px;
+                    //text-align: center;
+                    text-align: justify;
+                    &[type=text] {
+                        width: 90%;
+                        height: 35px;
+                        text-align: center;
+                    }
+                    &[type=submit] {
+                        width: 90%;
+                        //text-align: center;
+                        text-align: justify;
+                    }
+                }
+
+            }
+    }
+    
+}

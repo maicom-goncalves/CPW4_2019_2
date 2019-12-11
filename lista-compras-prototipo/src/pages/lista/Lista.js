@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Menu from '../../components/menu/Menu';
 import paginaAnterior from '../../img/paginaAnterior.png';
 import ListaService from '../../services/ListaService';
 import './Lista.scss';
 import incluir from '../../img/incluir.png';
+import remover from '../../img/lixeira.png';
 
 export default class Lista extends Component {
 
@@ -15,6 +18,7 @@ export default class Lista extends Component {
             lista: this.props.location.state.lista,
             itensFiltrados: [],
             itemSelecionado: {}
+
         };
 
         this.service = new ListaService();
@@ -53,10 +57,29 @@ export default class Lista extends Component {
         if (!resposta) {
             lista.itens.push(item);
         }
-        this.setState({ lista });
 
-        
+        const service = new ListaService();
+        this.setState({ lista });
+        service.atualizar(lista);
     }
+    submit = (isToggleOn,) => {
+        confirmAlert({
+          title: 'Excluir',
+          message: 'Deseja excluir este produto ?',
+          buttons: [
+            {
+              label: 'Sim'
+            },
+            {
+              label: 'Não'
+            }
+          ]
+        });
+      };
+      delete(id){
+        this.setState(this.itens)
+     }
+
 
     render() {
 
@@ -64,22 +87,21 @@ export default class Lista extends Component {
             lista,
             itensFiltrados
         } = this.state;
-        console.log(lista);
 
         const listaItensFiltrados = itensFiltrados.map((item, key) => (
             <div key={key} className="itemFiltrado">
                 <div id="parteUm">
-                  <span>{item.descricao}</span>  
+                  <span> {item.descricao} </span>
                 </div>
-                
+
                 <input
                     value={this.defaultValue}
                     ref={this.input}
                     type="number"
                     name={`quantidade${key}`}
-                    min="0.001"
+                    min="0.01"
                     id={`quantidade${key}`} />
-                
+
                 <button onClick={() => this.incluirItem(item, key)}>
                     <img src={incluir} alt="Incluir" />
                 </button>
@@ -89,11 +111,17 @@ export default class Lista extends Component {
 
         const listaItens = lista.itens ? lista.itens.map((item, key) => (
 
-            <li key={key}>
-                   <input type="checkbox"></input>
-                {`${item.quantidade} ${item.unidade} de ${item.descricao}`}
+            <li key={item.id}>
+                   <input id="confirm" type="checkbox"></input>
+
+                   {`${item.quantidade} ${item.unidade} de ${item.descricao}`}
+
+                    <button onClick={this.submit }>
+                      <img  src={remover} alt="Remover" />
+                    </button>
             </li>
         )) : [];
+
 
         return (
             <div>
@@ -117,10 +145,11 @@ export default class Lista extends Component {
                         {listaItensFiltrados}
                     </div>
                     <div className="itens-compra">
-                        <br/> 
+                        <br/>
                         <ul>
+
                             <li>{listaItens}</li>
-                        
+
                         </ul>
                     </div>
 

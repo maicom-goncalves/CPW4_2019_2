@@ -17,13 +17,21 @@ export default class EditarLista extends Component {
     }
 
     atualizar = (event) => {
+        /**
+         * Previne o comportamento padrão
+         * do formulário, que é recarregar
+         * a página.
+         */
         event.preventDefault();
 
         const service = new ListaService();
         const lista = this.state;
-        this.setState({ lista });
         service.atualizar(lista);
 
+        /**
+         * Faz o encaminhamento para a
+         * página inicial do app.
+         */
         this.props.history.push(ROTAS.INICIO);
     }
 

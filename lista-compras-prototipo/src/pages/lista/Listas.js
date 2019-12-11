@@ -9,7 +9,6 @@ import adicionar from '../../img/adicionar.png';
 import apagar from '../../img/delete.png';
 import editar from '../../img/editar.png';
 import rotas from '../../constants/rotas';
-
 export default class Listas extends Component {
 
     constructor() {
@@ -35,19 +34,15 @@ export default class Listas extends Component {
         this.setState({ listas });
     }
 
+
+    //teste apagar lista
     apagar = (lista) => {
+
+        //let { lista } = this.state;
         const service = new ListaService();
         this.setState({ lista })
         service.apagar(lista);
     }
-    /*atualizar = (lista) => {
-        const service = new ListaService();
-        this.setState({ lista,nome })
-    
-        let nome = prompt ("Qual o nome novo da lista ?");
-        service.atualizar(lista,nome);
-    }*/
-
     render() {
         const listas =
             this.state.listas.map(lista => (
@@ -67,20 +62,11 @@ export default class Listas extends Component {
                     <button onClick={() => this.apagar(lista)}>
                         <img src={apagar} alt="apagar-lista" />
                     </button>
-                    <Link
-                     to={
-                        {
-                            pathname: rotas.EDITAR_LISTA,
-                            state: { lista }
-                        }
-                    }
-                    key={lista._id}>
-                    >
-                     <button>
-                        <img src={editar} alt="editar-lista" />
-                    </button>
+                    <Link to="/editarlista">
+                        <button id="botaoNovaLista">
+                            <img src={editar} alt="editar-lista" />
+                        </button>
                     </Link>
-                   
 
                 </div>
             ));
@@ -118,6 +104,9 @@ export default class Listas extends Component {
 
                         <div className="listagem">
                             {listas}
+
+
+
                         </div>
 
                         <div id="areaBotao">

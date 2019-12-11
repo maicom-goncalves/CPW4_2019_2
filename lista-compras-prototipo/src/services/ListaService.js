@@ -8,7 +8,8 @@ export default class ListaService {
     constructor() {
         this.listas = [];
         this.api = axios.create({
-            baseURL: 'http://localhost:3001/listas'
+            //baseURL: 'http://localhost:3001/listas'
+             baseURL: 'https://lista-compras-wmf-api.herokuapp.com/listas'
         });
 
         this.apagar=this.apagar.bind(this);
@@ -19,22 +20,28 @@ export default class ListaService {
         this.listas = resposta.data;
         return this.listas;
     }
-    
+
     async salvar(lista) {
         await this.api.post('/', lista);
-        
+
     }
     async atualizar(lista) {
         console.log(lista);
-        let nome=`${lista.nome}`;
-        await this.api.put(`/${lista._id}`,{lista:nome});
-        
+        let itens=`${lista.itens}`;
+        let resposta =await this.api.put(`/${lista._id}`,itens);
+        this.listas = resposta.data;
+        return this.listas;
+
     }
 
     //testar metodo apagar
     async apagar(lista) {
-         this.api.delete(`/${lista._id}`);
-       //this.listas = resposta.data;  
+        let resposta = await this.api.delete(`/${lista._id}`);
+        this.listas = resposta.data;
+        return this.listas;
+
+       // this.listas = resposta.data;
+       // return this.listas;
     }
 
 
@@ -64,10 +71,8 @@ export default class ListaService {
     }
 
     //incluir item na lista
-    async incluirItem (lista, item){
-        await this.api.post('/', lista/item);
-    }
+    /*async atualizar(lista){
+        await this.api.put(`/${lista._id}`,lista);
+    }*/
 
 }
-
-

@@ -21,4 +21,5 @@ const Rotas = () => (
         </Switch>
     </BrowserRouter>
 );
+
 export default Rotas;

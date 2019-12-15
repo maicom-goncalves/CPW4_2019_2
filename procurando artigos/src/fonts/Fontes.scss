@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "decorativa";
+    src: url(./BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: "padrao";
+    src: url(./Merriweather-Regular.ttf);
+}
+
+@font-face {
+    font-family: "subtitulo";
+    src: url(./LilitaOne-Regular.ttf);
+}
+@font-face {
+    font-family: "negrito";
+    src: url(./Merriweather-Bold.ttf);
+}
+
+$fonte-decorativa: "decorativa";
+$fonte-padrao: "padrao";
+$fonte-negrito: "negrito";
+$fonte-subtitulo: "subtitulo";

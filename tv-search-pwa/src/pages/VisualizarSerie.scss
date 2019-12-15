@@ -1,8 +1,8 @@
 @import '../Cores';
 @import '../fonts/Fontes';
 
-    
-    #areaCartaz,#areaDadosSerie{
+
+#areaCartaz,#areaDadosSerie{
     display:inline-block;
     //background-color: #cd5c5c4f;
 }
@@ -17,19 +17,19 @@
     font-size: 20px;
     width : 50%;
     font-family: $fonte-padrao;
-    
+
     h2{
         font-family: $fonte-negrito;
     }
     .nomeCampo{
         font-family: $fonte-negrito;
         margin-right: 5px;
-        
+
     }
     #sinopse{
         display: inline;
-        
-        
+
+
     }
 }
 
@@ -47,7 +47,7 @@
             text-align: center;
         }
          //text-align: justify;
-         
+
     }
 
 }

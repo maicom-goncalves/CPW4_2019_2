@@ -1,0 +1,180 @@
+@import '../Cores';
+@import '../fonts/Fontes';
+
+            * {
+                margin: 0;
+                padding: 0;
+        }
+            
+            .inicio {
+                width: 1100px;
+                margin: 0 auto;
+                text-align: center;
+                margin-top: 50px;
+                h1 {
+                    font-size: 50px;
+                    color:$cor3;
+                    font-family:$fonte-decorativa;
+                    margin-bottom: 40px;
+             }
+    
+                form {
+                    display: inline-block;
+                    margin-bottom: 40px;
+                    border-color: solid $cor3;
+                
+            }
+    
+                input {
+                    line-height: 40px;
+                    border: none;
+                    width: 400px;
+                    padding: 0 20px;
+                    box-shadow: 2px 1px 5px $cor1,
+                    -1px -1px 5px $cor4;
+    
+                    &[type=text] {
+                        background: #fcf5eb;
+                        font-family: $fonte-padrao;
+              }
+            }
+
+         }
+            button {
+                line-height: 40px;
+                border: none;
+                background:$cor5;
+                font-size: 20px;
+                padding: 0 15px;
+                border-radius: 20px 20px 20px 20px;
+                color:white;
+                box-shadow: 0 9px #999;
+                margin-top: 10px;
+                margin-left: 10px;
+            &[type=submit] {
+            font-family: $fonte-subtitulo;    
+          }
+        }
+        button:hover {background-color: #d16c4e}
+
+        button:active {
+        background-color: #883628;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+}
+            
+             input , button:focus {
+                outline: none;
+         }
+
+        .resultado {
+                width: 840px;
+                margin: 0 auto;
+                //display:inline-block;
+                text-align: justify;
+                margin-bottom: 14px;
+                background-color: $cor4;
+                box-shadow: 2px 1px 5px $cor1,
+                -1px -1px 5px $cor4;
+            h3 {
+                    font-size: 25px;
+                    color: $cor3;
+                    font-family: $fonte-negrito;
+                    padding: 5px;
+         }
+              h3 a {
+                    color: $cor3;
+                    display: block;
+                    //line-height: 16px;
+                    text-decoration: none;
+         }
+               
+                
+                .link a {
+                    text-decoration: none;
+                    font-size: $fonte-decorativa;
+                    color: $cor2;
+                    
+                  }
+                  .link a:hover {
+                    text-decoration: none;
+                    color:#f52626;
+         }
+
+                
+                .descricao {
+                    color: $cor1;
+                    font-family: $fonte-padrao;
+                    text-align: justify;
+                    padding: 15px;
+                    font-size: 17px;
+         }
+     }
+        
+
+
+ 
+    @media only screen and (max-width: 768px){
+        .inicio{
+            text-align: center;
+            width: 90%;
+            margin: 0px auto 2px auto;
+            font-size: 70%;
+            padding: 5px;
+            margin-left: 13px;
+            h1{
+                font-size: 25px;
+                padding: 10px;
+                margin-bottom: 20px;
+             }
+             form {
+                margin-left: 15px;
+                width: 90%;
+                    input {
+                        padding: 0 ;
+                        display:inline;
+                        margin: 1px;
+                        text-align: justify;
+                        &[type=text] {
+                            width: 90%;
+                            height: 35px;
+                            text-align: center;
+                    }
+                     }
+                button{
+                    line-height: 30px;
+                                
+                    &[type=submit] {
+                        width: 90%;
+                        text-align: center;
+                        //border-radius: 20px 20px 20px 20px;
+                                    
+                        }
+                    }
+              }
+
+        }
+         
+        .resultado {
+            text-align: justify;
+            width: 93%;
+            display:block;
+            h3{
+                font-size: 20px;
+            }
+            .descricao{
+                width: 87%;
+                font-size: 14px;
+                padding: 10px;             
+            }
+                 
+                .link a{
+                display:block;
+                width: 10%;
+                font-size: 13px;
+                margin-left: 10px;        
+            }
+        }                    
+        }
+    
+    
